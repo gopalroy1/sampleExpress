@@ -18,6 +18,6 @@
     }
   });
 
-  app.listen(port, () => {
-    console.log(`Server listening on port P: ${port}`);
-  });
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server listening on port ${port}`);
+});
