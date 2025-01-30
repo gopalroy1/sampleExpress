@@ -13,6 +13,7 @@
       console.log('sucess')
       res.send('sucess');
     } catch (error) {
+      console.log('In error');
       console.error(error);
       res.status(500).send('Error fetching data',error?.message);
     }
