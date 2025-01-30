@@ -11,7 +11,22 @@
       console.log('req came')
       const res1 = await axios.post('https://x3zupunkzxixtdf3rigvonm3jq0sinpv.lambda-url.ap-south-1.on.aws/');
       console.log('res1 complete',{res1});
-      const response = await axios.get('https://smartzone.reliancegeneral.co.in/Login/IMDLogin?ReturnUrl=%2fMotor%2fPartialQuoteProducTypes%3fbaseProductCode%3dqNqXB5%25252bwj5cfBNx%25252fo5dSgA%25253d%25253d&baseProductCode=qNqXB5%252bwj5cfBNx%252fo5dSgA%253d%253d');
+      const response = await axios.get('https://smartzone.reliancegeneral.co.in/Login/', null, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Referer': 'https://target-website.com/',
+                'DNT': '1', // Prevents tracking suspicion
+                'Upgrade-Insecure-Requests': '1',
+                'Connection': 'keep-alive',
+                'Cache-Control': 'no-cache',
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-Forwarded-For': '45.67.89.101', // Fake IP (optional)
+                'Origin': 'https://target-website.com'
+            }
+        });
       console.log('sucess')
       res.send('sucess');
     } catch (error) {
