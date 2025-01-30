@@ -27,7 +27,7 @@
                 // 'Origin': 'https://target-website.com'
             }
         });
-      console.log('sucess')
+      console.log('all completed')
       res.send('sucess');
     } catch (error) {
       console.log('In error');
