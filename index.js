@@ -21,10 +21,10 @@ app.get('/hello', async (req, res) => {
       { headers }
     );
 
-    console.log('Request completed successfully',);
+    console.log('Request completed successfully',response.data?.[0]?.ShowRoomPrice);
 
     // Send the response back
-    return res.json(response.data);
+    return res.json(response.data?.[0]?.ShowRoomPrice);
   } catch (error) {
     console.log('Request failed with error');
     console.error(error);
