@@ -8,7 +8,7 @@
 
   app.get('/hello', async (req, res) => {
     try {
-      console.log('req came')
+      console.log('req camen ')
       const res1 = await axios.post('https://x3zupunkzxixtdf3rigvonm3jq0sinpv.lambda-url.ap-south-1.on.aws/');
       console.log('res1 complete',{res1});
       const response = await axios.get('https://smartzone.reliancegeneral.co.in/Login/', null, {
