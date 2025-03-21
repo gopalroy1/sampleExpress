@@ -7,7 +7,7 @@ const port = 3002;
 app.get('/hello', async (req, res) => {
   console.log('Code updated')
   try {
-    return res.status(200).json('Hey there!')
+    return res.status(200).json('Hey there! code updated')
   } catch (error) {
     console.log('Request failed with error');
     console.error(error);
