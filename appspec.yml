@@ -1,10 +1,11 @@
-version: 0.0
-os: linux
+version: 0.0   # Specifies the AWS CodeDeploy AppSpec file version (0.0 is required for EC2/on-premises deployments).
+os: linux      # Defines the operating system where the deployment will run.
+
 files:
-  - source: /
-    destination: /home/ec2-user/sampleExpress
+  - source: /  # Copies all files from the deployment package (typically from S3).
+    destination: /home/ec2-user/sampleExpress  # Places them in the EC2 instance directory.
 
 hooks:
-  AfterInstall:
-    - location: scripts/deploy.sh
-      runas: ec2-user
+  AfterInstall:  # This hook runs AFTER files are copied to the EC2 instance.
+    - location: scripts/deploy.sh  # Specifies the deployment script location.
+      runas: ec2-user  # Runs the script as ec2-user (avoiding root permission issues).
