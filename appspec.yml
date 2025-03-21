@@ -1,0 +1,10 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ec2-user/sampleExpress
+
+hooks:
+  AfterInstall:
+    - location: scripts/deploy.sh
+      runas: ec2-user
