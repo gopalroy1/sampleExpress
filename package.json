@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "runScript": "bash script.sh",
-    "dev": "nodemon index.js"
-  },
+"scripts": {
+  "start": "pm2 start index.js",
+  "stop": "pm2 stop index",
+  "restart": "pm2 restart index",
+  "delete": "pm2 delete index",
+  "list": "pm2 list",
+  "logs": "pm2 logs",
+  "monitor": "pm2 monit",
+  "stop-all": "pm2 stop all",
+  "delete-all": "pm2 delete all",
+  "kill": "pm2 kill"
+},
   "author": "",
   "license": "ISC",
   "dependencies": {
