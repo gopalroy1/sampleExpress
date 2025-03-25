@@ -4,12 +4,9 @@ os: linux      # Defines the operating system where the deployment will run.
 files:
   - source: /  # Copies all files from the deployment package (typically from S3).
     destination: /home/ec2-user/sampleExpress  # Places them in the EC2 instance directory.
-
+    overwrite: true
+file_exists_behavior: OVERWRITE
 hooks:
-  BeforeInstall:
-    - location: scripts/cleanup.sh
-      timeout: 300
-      runas: ec2-user
 
   AfterInstall:  # This hook runs AFTER files are copied to the EC2 instance.
     - location: scripts/deploy.sh  # Specifies the deployment script location.
