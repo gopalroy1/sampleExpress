@@ -6,6 +6,11 @@ files:
     destination: /home/ec2-user/sampleExpress  # Places them in the EC2 instance directory.
 
 hooks:
+  BeforeInstall:
+    - location: scripts/cleanup.sh
+      timeout: 300
+      runas: ec2-user
+
   AfterInstall:  # This hook runs AFTER files are copied to the EC2 instance.
     - location: scripts/deploy.sh  # Specifies the deployment script location.
       runas: ec2-user  # Runs the script as ec2-user (avoiding root permission issues).
