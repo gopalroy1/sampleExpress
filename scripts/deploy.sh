@@ -18,9 +18,9 @@ echo "PM2 status after restart:"
 pm2 list
 
 # Validate that the application is running
-if pgrep -x node > /dev/null; then
-  echo "✅ Application is running."
+if pm2 list | grep -w "index" | grep -w "online" > /dev/null; then
+  echo "✅ Process 'index' is online."
 else
-  echo "❌ Application is NOT running."
+  echo "❌ Process 'index' is NOT online."
   exit 1
 fi
