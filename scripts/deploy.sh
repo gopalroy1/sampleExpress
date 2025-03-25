@@ -16,7 +16,7 @@ ls -al
 
 # Install project dependencies
 echo "Installing dependencies..."
-pnpm install 2>&1 | tee install.log  # Log output for debugging
+pnpm install --frozen-lockfile 2>&1 | tee install.log  # Log output for debugging
 
 # Check if dependencies installed correctly
 if [ $? -ne 0 ]; then
@@ -31,15 +31,20 @@ sudo chmod -R 755 /home/ec2-user/sampleExpress
 
 # Log current PM2 processes (before restart)
 echo "Current PM2 processes:"
-pm2 list
+pnpm list
 
-# Restart the application using package.json scripts
-echo "Restarting application using pnpm..."
-pnpm restart || pnpm start 2>&1 | tee pm2_restart.log  # Log output for debugging
+# Check if the application is running
+if pm2 list | grep -q "index"; then
+  echo "✅ Application is running. Restarting..."
+  pnpm restart
+else
+  echo "❌ Application is NOT running. Starting..."
+  pnpm start
+fi
 
-# Log PM2 status after restart
-echo "PM2 status after restart:"
-pm2 list
+# Log PM2 status after restart/start
+echo "PM2 status after operation:"
+pnpm list
 
 # Validate if application is running
 echo "Validating application..."
