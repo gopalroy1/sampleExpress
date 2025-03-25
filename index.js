@@ -1,13 +1,12 @@
 import express from 'express';
-import axios from 'axios';
 
 const app = express();
 const port = 3002;
 
 app.get('/hello', async (req, res) => {
-  console.log('Code updated 10')
+  console.log('Code updated 11')
   try {
-    return res.status(200).json('Hey there! code updated 10')
+    return res.status(200).json('Hey there! code updated 11')
   } catch (error) {
     console.log('Request failed with error');
     console.error(error);
@@ -17,5 +16,5 @@ app.get('/hello', async (req, res) => {
 });
 
 app.listen(port, '0.0.0.0', () => {
-  console.log(`Server listening on port ${port}`);
+  console.log(`Server listening on port new ${port}`);
 });
