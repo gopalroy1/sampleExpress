@@ -5,7 +5,7 @@ const app = express();
 const port = 3002;
 
 app.get('/hello', async (req, res) => {
-  console.log('Code updated 4')
+  console.log('Code updated 5')
   try {
     return res.status(200).json('Hey there! code updated')
   } catch (error) {
